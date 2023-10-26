@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
 import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native';
 
+
 export default function LoadingScreen({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
