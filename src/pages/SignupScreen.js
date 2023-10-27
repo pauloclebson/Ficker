@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { auth, createUserWithEmailAndPassword } from '../Firebase.config';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../Firebase.config';
 
 const SignupScreen = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -9,18 +10,21 @@ const SignupScreen = ({ navigation }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSignup = async () => {
+    if(name === '' || email === '' || password === '' || confirmPassword === ''){
+      alert('Todos os campos devem ser preenchidos!')
+    }
     if (password !== confirmPassword) {
       alert('As senhas não coincidem');
-      return;
     }
-
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      // Redirecionar para a próxima tela após o cadastro bem-sucedido
-      alert('Cadastro efetuado');
-      navigation.navigate('Home');
-    } catch (error) {
-      console.log(error);
+    else{
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        // Redirecionar para a próxima tela após o cadastro bem-sucedido
+        alert('Cadastro efetuado');
+        navigation.navigate('Login');
+      } catch (error) {
+        console.log(error);
+        }
     }
   };
 
@@ -62,14 +66,14 @@ const SignupScreen = ({ navigation }) => {
         value={password}
         onChangeText={(text) => setPassword(text)}
         secureTextEntry
-        style={styles.formInput}
+        style={styles.input}
       />
       <TextInput
         placeholder="Confirmar Senha"
         value={confirmPassword}
         onChangeText={(text) => setConfirmPassword(text)}
         secureTextEntry
-        style={styles.formInput}
+        style={styles.input}
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
