@@ -9,14 +9,14 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    // try {
-    //   await signInWithEmailAndPassword(auth, email, password);
-    //   // Redirecionar para a próxima tela após o login bem-sucedido
-    //   alert('Login efetuado');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      // Redirecionar para a próxima tela após o login bem-sucedido
+      alert('Login efetuado');
       navigation.navigate('Home');
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSignupButtonPress = async () => {
