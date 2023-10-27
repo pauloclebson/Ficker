@@ -1,11 +1,13 @@
 import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native';
+import { View, Text, ActivityIndicator, Image } from 'react-native';
+import { styles } from '../GlobalStyle';
+
 
 export default function LoadingScreen({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Login'); // Navega para a próxima tela após 5 segundos
+      navigation.navigate('Landing'); // Navega para a próxima tela após 5 segundos
     }, 5000);
   }, []);
 
@@ -22,15 +24,4 @@ export default function LoadingScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: "#FA8072",
-  },
-  textLogo:{
-    fontSize: 20,
-    fontWeight: 'bold',
-  }
-});
+
