@@ -41,12 +41,12 @@ const AppNavigator = createStackNavigator({
       headerShown: false,
     },
   },
-  SelectAccount:{
-    screen: SelectAccountScreen,
-    navigationOptions: {
-      headerShown: false,
-    },
-  },
+  // SelectAccount:{
+  //   screen: SelectAccountScreen,
+  //   navigationOptions: {
+  //     headerShown: false,
+  //   },
+  // },
   BankInformation:{
     screen: BankInformationScreen,
     navigationOptions: {
