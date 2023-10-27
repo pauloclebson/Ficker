@@ -7,7 +7,7 @@ import { styles } from '../GlobalStyle';
 export default function LoadingScreen({ navigation }) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('Landing'); // Navega para a próxima tela após 5 segundos
+      navigation.navigate('EditProfile'); // Navega para a próxima tela após 5 segundos
     }, 5000);
   }, []);
 
@@ -18,7 +18,7 @@ export default function LoadingScreen({ navigation }) {
       />
       <Text style={styles.textLogo}>FickeR</Text>
 
-      <Text>Loading...</Text>
+      <Text>Carregando...</Text>
       <ActivityIndicator size="large" color="#0000ff" />
     </View>
   );

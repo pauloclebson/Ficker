@@ -5,6 +5,10 @@ import LoginScreen from './pages/LoginScreen';
 import SignupScreen from './pages/SignupScreen';
 import LandingScreen from './pages/LandingScreen';
 import HomeScreen from './pages/HomeScreen';
+import SelectAccountScreen from './pages/SelectAccountScreen';
+import BankInformationScreen from './pages/BankInformationScreen';
+import EditAccountScreen from './pages/EditAccountScreen';
+import EditProfileScreen from './pages/EditProfileScreen';
 
 const AppNavigator = createStackNavigator({
   Loading: {
@@ -33,6 +37,30 @@ const AppNavigator = createStackNavigator({
   },
   Home:{
     screen: HomeScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  SelectAccount:{
+    screen: SelectAccountScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  BankInformation:{
+    screen: BankInformationScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  EditAccount:{
+    screen: EditAccountScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  EditProfile:{
+    screen: EditProfileScreen,
     navigationOptions: {
       headerShown: false,
     },

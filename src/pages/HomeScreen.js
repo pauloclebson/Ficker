@@ -2,8 +2,8 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function LoadingScreen({ navigation }){
 
-  const handleConnectButtonPress = () => {
-    // Adicione aqui a ação desejada ao pressionar o botão "Conectar"
+  const handleConnectButtonPress = async () => {
+    await navigation.navigate('BankInformation'); // Navegar para a tela de cadastro
   };
 
   return (
@@ -31,15 +31,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 65,
     fontWeight: 'bold',
     color: '#E32D40', // Cor desejada
     marginBottom: 10, // Espaço abaixo do título
   },
   paragraph: {
-    fontSize: 16,
+    fontSize: 24,
     color: 'black', // Cor do texto do parágrafo
-    textAlign: 'center', // Texto centralizado
+    textAlign: 'left', // Texto centralizado
     margin: 20, // Espaço em torno do parágrafo
   },
   image: {
