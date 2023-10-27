@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { auth, createUserWithEmailAndPassword } from '../Firebase.config';
+import { auth } from '../Firebase.config';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignupScreen = ({ navigation }) => {
   const [name, setName] = useState('');
@@ -53,6 +54,7 @@ const SignupScreen = ({ navigation }) => {
       />
       <TextInput
         placeholder="Email"
+        keyboardType='email-address'
         value={email}
         onChangeText={(text) => setEmail(text)}
         style={styles.input}
@@ -62,14 +64,14 @@ const SignupScreen = ({ navigation }) => {
         value={password}
         onChangeText={(text) => setPassword(text)}
         secureTextEntry
-        style={styles.formInput}
+        style={styles.input}
       />
       <TextInput
         placeholder="Confirmar Senha"
         value={confirmPassword}
         onChangeText={(text) => setConfirmPassword(text)}
         secureTextEntry
-        style={styles.formInput}
+        style={styles.input}
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSignup}>

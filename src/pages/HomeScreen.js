@@ -1,16 +1,62 @@
-import { View, Text, Image} from 'react-native';
-import { styles } from '../GlobalStyle';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function LoadingScreen({ navigation }){
 
-return (
-    <View style={styles.container}>
-      <Image 
-      source={require("../../assets/logomarca-p.png")}
-      />
-      <Text style={styles.textLogo}>FickeR</Text>
+  const handleConnectButtonPress = () => {
+    // Adicione aqui a ação desejada ao pressionar o botão "Conectar"
+  };
 
-      <Text>Bem Vindo!</Text>
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Conecte suas contas do banco.</Text>
+      <Text style={styles.paragraph}>
+        Obtenha uma visão completa de suas finanças com todas as suas contas em um só lugar.
+      </Text>
+      <Image
+        style={styles.image}
+        source={require('../../assets/image.png')} // Substitua 'sua-imagem.png' pelo nome da sua imagem
+      />
+      <TouchableOpacity style={styles.button} onPress={handleConnectButtonPress}>
+        <Text style={styles.buttonText}>Conectar</Text>
+      </TouchableOpacity>
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#E32D40', // Cor desejada
+    marginBottom: 10, // Espaço abaixo do título
+  },
+  paragraph: {
+    fontSize: 16,
+    color: 'black', // Cor do texto do parágrafo
+    textAlign: 'center', // Texto centralizado
+    margin: 20, // Espaço em torno do parágrafo
+  },
+  image: {
+    width: 200, // Largura da imagem
+    height: 200, // Altura da imagem
+    margin: 20, // Espaço abaixo da imagem
+  },
+  button: {
+    backgroundColor: '#FF6347', // Cor do botão
+    width: 200, // Largura do botão
+    height: 40, // Altura do botão
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+});
