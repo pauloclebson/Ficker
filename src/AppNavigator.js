@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import LoadingScreen from './pages/LoadingScreen';
 import LoginScreen from './pages/LoginScreen';
 import SignupScreen from './pages/SignupScreen';
+import HomeScreen from './pages/HomeScreen';
 
 const AppNavigator = createStackNavigator({
   Loading: {
@@ -19,6 +20,12 @@ const AppNavigator = createStackNavigator({
   },
   Signup:{
     screen: SignupScreen,
+    navigationOptions: {
+      headerShown: false,
+    },
+  },
+  Home:{
+    screen: HomeScreen,
     navigationOptions: {
       headerShown: false,
     },

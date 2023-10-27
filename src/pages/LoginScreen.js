@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Pressable, Image} from 'react-native';
 import { auth } from '../Firebase.config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { styles } from '../GlobalStyle';
 
 
 const LoginScreen = ({ navigation }) => {
@@ -25,46 +26,43 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Login</Text>
-      <TextInput
-        placeholder="Email"
-        keyboardType='email-address'
-        value={email}
-        onChangeText={setEmail}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Senha"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-        style={styles.input}
-      />
-      <Button title="Login" onPress={handleLogin} />
-      <View>
-        <Button title="Cadastrar" onPress={handleSignupButtonPress} />
-      </View>
+        <View>
+            <Image 
+            source={require("../../assets/logomarca-p.png")}
+             />
+             <Text style={styles.textLogo01}>FickeR</Text>
+        </View>
+        <Text style={styles.formTitle}>Login</Text>
+        <TextInput
+            placeholder="Email"
+            keyboardType='email-address'
+            autoCapitalize='none'
+            autoComplete='email'
+            value={email}
+            onChangeText={setEmail}
+            style={styles.formInput}
+        />
+        <TextInput
+            placeholder="Senha"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+            style={styles.formInput}
+        />
+        <Pressable style={styles.formButton} onPress={handleLogin}>
+            <Text style={styles.textButton}>Logar</Text>
+        </Pressable>
+        <View style={styles.subContainer}>
+            <Pressable style={styles.subButton}>
+                <Text style={styles.subTextButton}>Esqueci a Senha</Text>
+            </Pressable>
+            <Pressable style={styles.subButton} onPress={handleSignupButtonPress}>
+                <Text style={styles.subTextButton}>Novo Usuário</Text>
+            </Pressable>
+        </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
-  },
-  header: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-  },
-});
 
 export default LoginScreen;

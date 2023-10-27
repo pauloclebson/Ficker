@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, Image } from 'react-native';
+import { View, Text, ActivityIndicator, Image } from 'react-native';
+import { styles } from '../GlobalStyle';
 
 
 export default function LoadingScreen({ navigation }) {
@@ -23,15 +24,4 @@ export default function LoadingScreen({ navigation }) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: "#FA8072",
-  },
-  textLogo:{
-    fontSize: 20,
-    fontWeight: 'bold',
-  }
-});
+

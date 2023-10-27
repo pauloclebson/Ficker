@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Image, Pressable } from 'react-native';
 import { auth } from '../Firebase.config';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { styles } from '../GlobalStyle';
 
 
 const SignupScreen = ({ navigation }) => {
@@ -30,50 +31,40 @@ const SignupScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Cadastro</Text>
+              <View>
+            <Image 
+            source={require("../../assets/logomarca-p.png")}
+             />
+             <Text style={styles.textLogo01}>FickeR</Text>
+        </View>
+      <Text style={styles.formTitle}>Novo Usuário</Text>
       <TextInput
         placeholder="exemplo@gmail.com"
         value={email}
         keyboardType='email-address'
         onChangeText={setEmail}
-        style={styles.input}
+        style={styles.formInput}
       />
       <TextInput
         placeholder="Senha"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        style={styles.input}
+        style={styles.formInput}
       />
       <TextInput
         placeholder="Confirme a Senha"
         value={repassword}
         onChangeText={setRePassword}
         secureTextEntry
-        style={styles.input}
+        style={styles.formInput}
       />
-      <Button title="Cadastrar" onPress={handleSignup} />
+      <Pressable style={styles.formButton} onPress={handleSignup}>
+        <Text style={styles.textButton}>Cadastrar</Text>
+      </Pressable>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
-  },
-  header: {
-    fontSize: 24,
-    marginBottom: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-  },
-});
 
 export default SignupScreen;
